@@ -289,10 +289,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1headings" class="md-nav__link">
+  <a href="#1-headings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.Headings
+        1. Headings
       
     </span>
   </a>
@@ -334,10 +334,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1headings" class="md-nav__link">
+  <a href="#1-headings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.Headings
+        1. Headings
       
     </span>
   </a>
@@ -362,30 +362,42 @@
 
 
 <h1 id="markdown">Markdown 语法</h1>
-<h2 id="1headings">1.Headings</h2>
-<h1 id="_1">#一级标题</h1>
-<h2 id="_2">##二级标题</h2>
-<h3 id="_3">###三级标题</h3>
-<h2 id="2text-formating">2.Text Formating</h2>
-<p>两个<em>括起来 means </em><em>Bold</em>*</p>
-<p>单个<em> 括起来就表示  </em>斜体*</p>
-<p>两个~  ~~代表删除线~~</p>
-<p>如果你要换行需要两次enter</p>
-<h2 id="3-lists">3.列表 Lists</h2>
-<p><strong>无序列表 单个*就好，空心的话就是星号前加tab</strong>
-* 小睦
-    * 小祥</p>
-<p><strong>有序列表（1.2.3.这样子）</strong>
-1. 打开冰箱
-2. 放进大象
-3. 关上冰箱</p>
-<p><strong>待办事项 (Task Lists -)</strong>
-- [x] 打开冰箱
-- [ ] 放进大象
-- [ ] 关上冰箱</p>
-<h2 id="4code-blocks">4.Code Blocks</h2>
-<p><strong>行内代码:</strong> 使用单个反引号，也就是这个东西，比如<code>std::vector</code></p>
-<p><strong>多行代码</strong> 使用三个反引号,比如</p>
+<h2 id="1-headings">1. Headings</h2>
+<p>如果你想在文章中打出多级标题，要在 <code>#</code> 后面加一个空格，像下面这样书写：</p>
+<h1 id="_1">一级标题</h1>
+<h2 id="_2">二级标题</h2>
+<h3 id="_3">三级标题</h3>
+<hr />
+<h2 id="2-text-formatting">2. Text Formatting</h2>
+<p>两个 <code>*</code> 括起来表示 <strong>Bold (粗体)</strong></p>
+<p>单个 <code>*</code> 括起来表示 <em>斜体</em></p>
+<p>两个 <code>~</code> 括起来表示 ~~删除线~~</p>
+<p>如果你要换行，需要连续敲击两次 Enter (回车) 键，也就是留出一个空行。</p>
+<hr />
+<h2 id="3-lists">3. Lists</h2>
+<p><strong>无序列表 (单个 <code>*</code> 加空格就好，嵌套在星号前按 Tab 键)：</strong></p>
+<ul>
+<li>小睦<ul>
+<li>小祥</li>
+</ul>
+</li>
+</ul>
+<p><strong>有序列表（1. 2. 3. 这样子，注意点号后面有空格）：</strong></p>
+<ol>
+<li>打开冰箱</li>
+<li>放进大象</li>
+<li>关上冰箱</li>
+</ol>
+<p><strong>待办事项 (Task Lists)：</strong></p>
+<ul>
+<li>[x] 打开冰箱</li>
+<li>[ ] 放进大象</li>
+<li>[ ] 关上冰箱</li>
+</ul>
+<hr />
+<h2 id="4-code-blocks">4. Code Blocks (代码块)</h2>
+<p><strong>行内代码:</strong> 使用单个反引号，也就是这个东西，比如 <code>std::vector</code>。</p>
+<p><strong>多行代码:</strong> 使用三个反引号，并在第一行加上语言名称，比如 cpp：</p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 
@@ -396,6 +408,8 @@ int main() {
     return 0;
 }
 </code></pre>
+<hr />
+<p>差不多就是这些了</p>
 
 
 
