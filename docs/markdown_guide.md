@@ -41,7 +41,7 @@
 
 ---
 
-## 4. Code Blocks (代码块)
+## 4. Code Blocks
 
 **行内代码:** 使用单个反引号，也就是这个东西，比如 `std::vector`。
 
