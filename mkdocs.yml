@@ -7,3 +7,17 @@ theme:
 nav:
   - Front Page: index.md
   - Writing Guide: markdown_guide.md
+
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.tilde
+  - pymdownx.caret
+  - admonition
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
