@@ -50,13 +50,12 @@
 ```cpp
 #include <iostream>
 #include <vector>
-
 using namespace std;
-
-int main() {
-    cout << "Hello, Competitive Programming!" << endl;
+int main(){
+    cout<<"Hello  World!" <<endl;
     return 0;
 }
+```
 
 ---
 差不多就是这些了
