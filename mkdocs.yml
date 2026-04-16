@@ -3,3 +3,7 @@ theme:
   name: material
   palette:
     scheme: slate
+
+nav:
+  - Front Page: index.md
+  - Writing Guide: markdown_guide.md
