@@ -10,7 +10,7 @@
 
 .md-typeset th {
     background-color: #161b22 !important;
-    color: #79c0ff !important;
+    color: #3f94de !important;
     border: 1px solid #30363d !important;
     font-weight: 600 !important;
     text-transform: uppercase;
@@ -25,11 +25,10 @@
 
 
 .md-typeset td code {
-    color: #ffa657 !important;
+    color: #763a9d !important;
     background-color: rgba(175, 184, 193, 0.1) !important;
     border-radius: 6px;
     padding: 0.1rem 0.3rem;
-    font-family: 'Fira Code', monospace;
 }
 
 .md-typeset tr:hover {
