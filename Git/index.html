@@ -586,37 +586,37 @@
 
 <h1 id="git">基本Git指令</h1>
 <h2 id="_1">基础配置</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git config --global user.name &quot;chenguan0613&quot;
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git config --global user.email &quot;3168966792@qq.com&quot;
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git config --global core.editor code
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s2">&quot;chenguan0613&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="s2">&quot;3168966792@qq.com&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">core</span><span class="p">.</span><span class="n">editor</span> <span class="n">code</span>
 </span></code></pre></div>
 <h2 id="_2">初始化和克隆</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git init
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git clone&lt;url&gt;
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">git</span> <span class="n">init</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">git</span> <span class="n">clone</span><span class="p">&lt;</span><span class="n">url</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <h2 id="_3">保存变更</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git status #查看当前文件状态(哪里改了，哪里没提交)
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git add &lt;filename&gt; #将特定文件添加到暂存区
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git add . #将当前目录下所有改动添加到暂存区
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>git commit -m &quot;说明&quot; #提交暂存区的改动到本地仓库
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">git</span> <span class="n">status</span> <span class="c">#查看当前文件状态(哪里改了，哪里没提交)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">git</span> <span class="n">add</span> <span class="p">&lt;</span><span class="n">filename</span><span class="p">&gt;</span> <span class="c">#将特定文件添加到暂存区</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">git</span> <span class="n">add</span> <span class="p">.</span> <span class="c">#将当前目录下所有改动添加到暂存区</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">git</span> <span class="n">commit</span> <span class="n">-m</span> <span class="s2">&quot;说明&quot;</span> <span class="c">#提交暂存区的改动到本地仓库</span>
 </span></code></pre></div>
 <h2 id="_4">远程同步</h2>
 <p>当我修改了仓库名称或者要在不同设备上同步的时候,注意这里是逻辑连接，改不了我们电脑上文件的物理名称
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git remote -v #查看当前的远程仓库地址
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git remote set-url origin &lt;new-url&gt; #修改远程仓库地址
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git pull #拉取远程代码并合并到本地
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>git push origin&lt;branch-name&gt; #将本地提交推送到远程对应的分支
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">git</span> <span class="n">remote</span> <span class="n">-v</span> <span class="c">#查看当前的远程仓库地址</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">git</span> <span class="n">remote</span> <span class="nb">set-url</span> <span class="n">origin</span> <span class="p">&lt;</span><span class="nb">new-url</span><span class="p">&gt;</span> <span class="c">#修改远程仓库地址</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">git</span> <span class="n">pull</span> <span class="c">#拉取远程代码并合并到本地</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span><span class="p">&lt;</span><span class="n">branch-name</span><span class="p">&gt;</span> <span class="c">#将本地提交推送到远程对应的分支</span>
 </span></code></pre></div></p>
 <h2 id="_5">分支管理</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git branch #查看所有分支
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git checkout -b &lt;name&gt; #创建并切换到新分支
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git checkout &lt;name&gt; #切换到已有分支
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git merge &lt;name&gt; #将某分支的代码合并到当前分支
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">git</span> <span class="n">branch</span> <span class="c">#查看所有分支</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">git</span> <span class="n">checkout</span> <span class="n">-b</span> <span class="p">&lt;</span><span class="n">name</span><span class="p">&gt;</span> <span class="c">#创建并切换到新分支</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">git</span> <span class="n">checkout</span> <span class="p">&lt;</span><span class="n">name</span><span class="p">&gt;</span> <span class="c">#切换到已有分支</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">git</span> <span class="n">merge</span> <span class="p">&lt;</span><span class="n">name</span><span class="p">&gt;</span> <span class="c">#将某分支的代码合并到当前分支</span>
 </span></code></pre></div>
 <h2 id="_6">撤销</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git checkout -- &lt;file&gt; # 撤销对某个文件的修改
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git reset HEAD &lt;file&gt; #将文件从暂存区移出，但保留修改
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>git log --online #简洁地查看提交历史
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">git</span> <span class="n">checkout</span> <span class="p">--</span> <span class="p">&lt;</span><span class="n">file</span><span class="p">&gt;</span> <span class="c"># 撤销对某个文件的修改</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">git</span> <span class="n">reset</span> <span class="n">HEAD</span> <span class="p">&lt;</span><span class="n">file</span><span class="p">&gt;</span> <span class="c">#将文件从暂存区移出，但保留修改</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">git</span> <span class="n">log</span> <span class="p">-</span><span class="n">-online</span> <span class="c">#简洁地查看提交历史</span>
 </span></code></pre></div>
 
 

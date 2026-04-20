@@ -630,15 +630,15 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="5">5. 表格</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>首先是表头：
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>| 三角初华 | 丰川祥子 | 若叶睦 |
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">首先是表头</span><span class="err">：</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">|</span> <span class="n">三角初华</span> <span class="p">|</span> <span class="n">丰川祥子</span> <span class="p">|</span> <span class="n">若叶睦</span> <span class="p">|</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>再是对齐方式：
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>| :--- | :----: | ---: |
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">再是对齐方式</span><span class="err">：</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">|</span> <span class="p">:---</span> <span class="p">|</span> <span class="p">:----:</span> <span class="p">|</span> <span class="p">---:</span> <span class="p">|</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>然后一行一行地写内容：
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>| 左对齐 | 居中 | 右对齐 |
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>| 这一列默认左对齐 | 这里居中 | 这里靠右 |
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">然后一行一行地写内容</span><span class="err">：</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">|</span> <span class="n">左对齐</span> <span class="p">|</span> <span class="n">居中</span> <span class="p">|</span> <span class="n">右对齐</span> <span class="p">|</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">|</span> <span class="n">这一列默认左对齐</span> <span class="p">|</span> <span class="n">这里居中</span> <span class="p">|</span> <span class="n">这里靠右</span> <span class="p">|</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -699,34 +699,20 @@
 </tbody>
 </table>
 <p>当然看到这里肯定是有很多疑问的：</p>
-<ol>
-<li>
-<p>初始化创建新的文件夹，这个[name]具体是什么？</p>
+<p>1.初始化创建新的文件夹，这个[name]具体是什么？</p>
 <p>这个name是我们的项目名，拿我这个举例，就叫做“My-Notebook”. 这里有两个核心文件，一个是.yml文件可以看作是目录，然后具体的文本内容全部放到了<code>docs/</code>里面</p>
-</li>
-<li>
-<p>构建静态页是什么？什么叫做构建？</p>
-</li>
-</ol>
+<p>2.构建静态页是什么？什么叫做构建？</p>
 <p>浏览器是不认识markdown的, 它只认识html. 当运行<code>mkdocs build</code> 的时候它会读取 <code>docs/</code> 里每一个<code>.md</code>, 按照<code>yml</code> 里的样式把它们全都翻译成<code>.html</code>，也就是构建</p>
-<ol>
-<li>site/文件里面是干嘛的，为什么要删除？</li>
-</ol>
-<p>运行 build 后，所有的 HTML、图片、CSS 都会被塞进这个文件夹</p>
-<ol>
-<li>
-<p>gh-deploy是什么意思，如果分支的名字不是这个呢？</p>
-<p>gh代表Github,deploy即部署发布.运行后它会做三件事情
+<p>3.site/文件里面是干嘛的，为什么要删除？
+运行 build 后，所有的 HTML、图片、CSS 都会被塞进这个文件夹</p>
+<p>4.gh-deploy是什么意思，如果分支的名字不是这个呢？
+gh代表Github,deploy即部署发布.运行后它会做三件事情
 * 在后台运行build
 * 创建一个专门存放网页的分支
 * 把<code>site/</code>里面的内容推送到这个分支里里面</p>
-</li>
-<li>
-<p>如果分支不是默认名字<code>gh-pages</code>呢？</p>
-</li>
-</ol>
-<p>Github pages 是默认寻找<code>gh-pages</code>这个分支的,如果你需要把它放在其它分支里，需要手动在<code>.yml</code>文件里加上</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>remote_branch: web-site #告诉指令往哪里push
+<p>5.如果分支不是默认名字<code>gh-pages</code>呢？
+   Github pages 是默认寻找<code>gh-pages</code>这个分支的,如果你需要把它放在其它分支里，需要手动在<code>.yml</code>文件里加上
+   <div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">remote_branch</span><span class="p">:</span> <span class="n">web-site</span> <span class="c">#告诉指令往哪里push</span>
 </span></code></pre></div>
 差不多就是这些了</p>
 
