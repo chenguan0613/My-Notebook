@@ -702,21 +702,28 @@
 <ol>
 <li>
 <p>初始化创建新的文件夹，这个[name]具体是什么？</p>
-<p>这个name是我们的项目名，拿我这个举例，就叫做“My-Notebook”. 这里有两个核心文件，一个是.yml文件可以看作是目录，然后具体的文本内容全部放到了<code>docs/</code>里面
-2. 构建静态页是什么？什么叫做构建？</p>
+<p>这个name是我们的项目名，拿我这个举例，就叫做“My-Notebook”. 这里有两个核心文件，一个是.yml文件可以看作是目录，然后具体的文本内容全部放到了<code>docs/</code>里面</p>
+</li>
+<li>
+<p>构建静态页是什么？什么叫做构建？</p>
 </li>
 </ol>
-<p>浏览器是不认识markdown的, 它只认识html. 当运行<code>mkdocs build</code> 的时候它会读取 <code>docs/</code> 里每一个<code>.md</code>, 按照<code>yml</code> 里的样式把它们全都翻译成<code>.html</code>，也就是构建
-3. site/文件里面是干嘛的，为什么要删除？</p>
-<p>运行 build 后，所有的 HTML、图片、CSS 都会被塞进这个文件夹
-4. gh-deploy是什么意思，如果分支的名字不是这个呢？</p>
-<div class="language-text highlight"><pre><span></span><code>gh代表Github,deploy即部署发布.运行后它会做三件事情
+<p>浏览器是不认识markdown的, 它只认识html. 当运行<code>mkdocs build</code> 的时候它会读取 <code>docs/</code> 里每一个<code>.md</code>, 按照<code>yml</code> 里的样式把它们全都翻译成<code>.html</code>，也就是构建</p>
+<ol>
+<li>site/文件里面是干嘛的，为什么要删除？</li>
+</ol>
+<p>运行 build 后，所有的 HTML、图片、CSS 都会被塞进这个文件夹</p>
+<ol>
+<li>
+<p>gh-deploy是什么意思，如果分支的名字不是这个呢？</p>
+<p>gh代表Github,deploy即部署发布.运行后它会做三件事情
 * 在后台运行build
 * 创建一个专门存放网页的分支
-* 把`site/`里面的内容推送到这个分支里里面
-</code></pre></div>
-<ol>
-<li>如果分支不是默认名字<code>gh-pages</code>呢？</li>
+* 把<code>site/</code>里面的内容推送到这个分支里里面</p>
+</li>
+<li>
+<p>如果分支不是默认名字<code>gh-pages</code>呢？</p>
+</li>
 </ol>
 <p>Github pages 是默认寻找<code>gh-pages</code>这个分支的,如果你需要把它放在其它分支里，需要手动在<code>.yml</code>文件里加上</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>remote_branch: web-site #告诉指令往哪里push
