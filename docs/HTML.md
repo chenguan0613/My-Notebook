@@ -20,7 +20,7 @@
     </body>
 </html>
 ```
-# 文本与排版标签
+## 文本与排版标签
 `<h1>`到`<h6>`：标题标签，Heading Tags,分别表示不同级别的标题，`<h1>`是最高级别，`<h6>`是最低级别
 
 `<p>`：段落标签，Paragraph Tag,表示一段文本
@@ -28,15 +28,15 @@
 `<br>`：换行标签，Line Break Tag,表示换行
 
 `<hr>`：水平线标签，Horizontal Rule Tag,表示一条水平线，用于分隔内容
-# 图片与超链接
+## 图片与超链接
 `<img>`：图片标签,用于插入图片，常用属性有`src`（图片路径）和`alt`（如果图片失效的替代文本）
 
 `<a>`：超链接标签，Anchor Tag,用于创建链接，常用属性有`href`（链接地址）和`target`（链接打开方式）
-# 表单输入与交互
+## 表单输入与交互
 `<input>`：输入标签,用于创建各种类型的输入框，常用属性有`type`（输入类型，如text、password、checkbox等）和`name`（输入名称）
 
 `<button>`：按钮标签，Button Tag,用于创建按钮，常用属性有`type`（按钮类型，如submit、reset、button）和`onclick`（点击事件处理函数）
-# 全局属性
+## 全局属性
 `id`：唯一标识符属性,用于给元素设置一个唯一的标识符,用JavaScript或CSS来引用
 
 `class`：类属性，Class Attribute,用于给元素设置一个或多个类名，用JavaScript或CSS来引用
@@ -46,13 +46,13 @@
 `title`：提示属性，Title Attribute,用于给元素设置一个提示文本，当鼠标悬停在元素上时显示
 
 `data-*`：自定义数据属性，Data Attribute,用于存储自定义数据，可以通过JavaScript来访问
-# 事件
+## 事件
 `onclick`：点击事件，当元素被点击时触发
 
-# Javascript
+## Javascript
 `<script>`：脚本标签,用于嵌入或引用JavaScript代码
 
-# 实例代码
+## 实例代码
 ```html
 <!DOCTYPE html>
 <html>
