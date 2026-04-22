@@ -88,7 +88,8 @@
 <a href="https://www.google.com" target="_blank">Google</a>
 ```
 
-## 布尔属性:只需确认是否存在即可，存在即True，不存在即False
+## 布尔属性
+只需确认是否存在即可，存在即True，不存在即False
 `disabled`:元素不可用
 ```html
 <input type="text" disabled>
