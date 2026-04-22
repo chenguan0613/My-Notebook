@@ -7,5 +7,7 @@ struct Edge{
     Edge(int to, int weight): to(to),weight(weight) {}
 };
 int main(){
+    vector<vector<Edge>> graph;
+    
     return 0;
 }

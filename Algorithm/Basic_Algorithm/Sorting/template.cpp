@@ -82,6 +82,25 @@ int partition(vector<int>& nums,int left,int right){
 bool cmp(const int& a,const int& b){
     return a>b; //从大到小
 }
+
+//自定义全排列
+vector<int> nums={1,2,3};
+vector<vector<int>> res;
+void backtrack(vector<int>& path,vector<bool>& used){
+    if(path.size()==nums.size()){
+        res.push_back(path);
+        return;
+    }
+    for(int i=0;i<nums.size();i++){
+        if(used[i]) continue;
+        used[i]=true;
+        path.push_back(nums[i]);
+        backtrack(path,used);
+        path.pop_back();
+        used[i]=false;
+    }
+}
+
 int main(){
     //快排就直接用sort(),默认从小到大
     vector<int> nums={5,2,9,1,5,6};
@@ -97,5 +116,12 @@ int main(){
     });
     //也可以自定义比较函数
     sort(nums.begin(),nums.end(),cmp);
+
+    //获得全排列
+    string s="abc";
+    sort(s.begin(),s.end());
+    while(next_permutation(s.begin(),s.end())){
+        cout<<s<<endl;
+    }
     return 0;
 }
