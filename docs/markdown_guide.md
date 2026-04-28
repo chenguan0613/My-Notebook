@@ -76,8 +76,22 @@ int main(){
 | 左对齐 | 居中 | 右对齐 |
 | 这一列默认左对齐 | 这里居中 | 这里靠右 |
 
+## 6. Insert Images
+插入图片的语法是这样的：
+```markdown
+![图片描述](图片链接)
+```
 
-## 6. 常用指令
+举个例子，如果我想插入一张宵崎奏的照片，那就如下：
+
+特训前：
+![Kanade](images/kanade.png)
+
+
+特训后：
+![Kanade](images/kanade_after_training.png)
+
+## 7. 常用指令
 
 |操作|指令|目的|
 |:---|:---|:---|
@@ -115,20 +129,5 @@ gh代表Github,deploy即部署发布.运行后它会做三件事情
    ```powershell
    remote_branch: web-site #告诉指令往哪里push
    ```
-
-6.如何插入图片
-直接在markdown里插入图片的链接就好了，语法是这样的：
-```markdown
-![图片描述](图片链接)
-```
-
-举个例子，如果我想插入一张宵崎奏的照片，那就如下：
-
-特训前：
-![Kanade](images/kanade.png)
-
-
-特训后：
-![Kanade](images/kanade_after_training.png)
 
 差不多就是这些了
