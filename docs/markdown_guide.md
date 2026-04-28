@@ -125,10 +125,10 @@ gh代表Github,deploy即部署发布.运行后它会做三件事情
 举个例子，如果我想插入一张宵崎奏的照片，那就如下：
 
 特训前：
-！[Kanade](My-Notebook\docs\images\kanade.png)
+![Kanade](My-Notebook/docs/images/kanade.png)
 
 
 特训后：
-！[Kanade](My-Notebook\docs\images\kanade_after_training.png)
+![Kanade](My-Notebook/docs/images/kanade_after_training.png)
 
 差不多就是这些了
