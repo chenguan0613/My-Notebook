@@ -4,4 +4,4 @@
 (参考罗勇军老师的《算法竞赛》这本书)
 
 不止算法了，什么都会说，Kanade镇楼
-![Kanade](https://storage.sekai.best/sekai-jp-assets/character/member/res017_no052/card_normal.png)
+![Kanade](https://storage.sekai.best/sekai-jp-assets/character/member/res017_no052/card_normal.PNG)
