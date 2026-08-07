@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -465,7 +465,7 @@
   <span class="md-ellipsis">
     
   
-    Basic_Algorithm
+    基础数据结构
   
 
     
@@ -732,10 +732,8 @@
 <h2 id="3-lists">3. Lists</h2>
 <p><strong>无序列表 (单个 <code>*</code> 加空格就好，嵌套在星号前按 Tab 键)：</strong></p>
 <ul>
-<li>小睦<ul>
+<li>小睦</li>
 <li>小祥</li>
-</ul>
-</li>
 </ul>
 <p><strong>有序列表（1. 2. 3. 这样子，注意点号后面有空格）：</strong></p>
 <ol>
@@ -794,9 +792,9 @@
 </tbody>
 </table>
 <h2 id="6-insert-images">6. Insert Images</h2>
-<p>插入图片的语法是这样的：
+<p>插入图片的语法是这样的：</p>
 <div class="language-markdown highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>![<span class="nt">图片描述</span>](<span class="na">图片链接</span>)
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>举个例子，如果我想插入一张宵崎奏的照片，那就如下：</p>
 <p>特训前：
 <img alt="Kanade" src="../images/kanade.png" /></p>
@@ -847,14 +845,16 @@
 <p>3.site/文件里面是干嘛的，为什么要删除？</p>
 <p>运行 build 后，所有的 HTML、图片、CSS 都会被塞进这个文件夹</p>
 <p>4.gh-deploy是什么意思，如果分支的名字不是这个呢？</p>
-<p>gh代表Github,deploy即部署发布.运行后它会做三件事情
-* 在后台运行build
-* 创建一个专门存放网页的分支
-* 把<code>site/</code>里面的内容推送到这个分支里里面</p>
+<p>gh代表Github,deploy即部署发布.运行后它会做三件事情</p>
+<ul>
+<li>在后台运行build</li>
+<li>创建一个专门存放网页的分支</li>
+<li>把<code>site/</code>里面的内容推送到这个分支里里面</li>
+</ul>
 <p>5.如果分支不是默认名字<code>gh-pages</code>呢？</p>
-<p>Github pages 是默认寻找<code>gh-pages</code>这个分支的,如果你需要把它放在其它分支里，需要手动在<code>.yml</code>文件里加上
-   <div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">remote_branch</span><span class="p">:</span> <span class="n">web-site</span> <span class="c">#告诉指令往哪里push</span>
-</span></code></pre></div></p>
+<p>Github pages 是默认寻找<code>gh-pages</code>这个分支的,如果你需要把它放在其它分支里，需要手动在<code>.yml</code>文件里加上</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">remote_branch</span><span class="p">:</span> <span class="n">web-site</span> <span class="c">#告诉指令往哪里push</span>
+</span></code></pre></div>
 <p>差不多就是这些了</p>
 
 
@@ -908,7 +908,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
