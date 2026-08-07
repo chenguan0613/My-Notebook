@@ -9,7 +9,7 @@ nav:
   - Writing Guide: markdown_guide.md
   - Git Guide: Git.md
   - Algorithm:
-    - Basic_Algorithm: Basic_Algorithm.md
+    - 基础数据结构: Basic_Algorithm.md
   - HTML:
     - Basic_HTML: HTML.md
     - Text_Format: HTML_textformat.md
