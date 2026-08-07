@@ -31,7 +31,7 @@ int main(){
     //创建循环链表
     for(int i=2;i<=n;i++){
         p=new node;
-        p->data=i;
+        p->value=i;
         p->next=NULL;
         cur->next=p;
         cur=p;
@@ -42,17 +42,17 @@ int main(){
     cur=head;
     node *prev; prev=head;
     while(n>1){
-        for(int i=0;i<m;i++){
+        for(int i=1;i<m;i++){
             prev=cur;
             cur=cur->next;
         }
-        //cout<<cur->data;
+        //cout<<cur->value;
         prev->next=cur->next;
         delete cur;
-        cur=prev->next
+        cur=prev->next;
         n--;
     }
-    //cout<<cur->data
+    //cout<<cur->value;
     delete cur;
 
     return 0;
@@ -80,14 +80,14 @@ int main(){
     nodes[n].next=1;
     //题目的具体解答
     int cur=1,prev=1;
-    for(n>1){
-        for(int i=0;i<m;i++){
+    while(n>1){
+        for(int i=0;i<m-1;i++){
             prev=cur;
-            cur++;
+            cir=nodes[cur].next;
         }
         //cout<<nodes[cur].value;
         nodes[prev].next=nodes[cur].next;
-        nodes[cur]=nodes[prev].next;
+        cur=nodes[prev].next;
         n--;
     }
     //cout<<nodes[cur].value;
@@ -116,9 +116,9 @@ int main(){
     nodes[1].prev=n;
     //题目的具体解答
     int cur=1;
-    for(n>1){
-        for(int i=0;i<m;i++){
-            cur++;
+    while(n>1){
+        for(int i=0;i<m-1;i++){
+            cur=nodes[cur].next;
         }
         //cout<<nodes[cur].value;
         nodes[nodes[cur].prev].next=nodes[cur].next;
@@ -164,21 +164,21 @@ int main(){
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
-    //int n,m;cin>>n,m;
+    //int n,m;cin>>n>>m;
     list<int> nodes;
     for(int i=1;i<=n;i++){
         nodes.push_back(i);
     }
-    auto it=nods.begin();
+    auto it=nodes.begin();
     while(nodes.size()>1){
-        for(int i=0;i<m;i++){
+        for(int i=0;i<m-1;i++){
             it++;
             if(it==nodes.end()) it=nodes.begin();
         }
         // cout<<*it;
         auto next=++it;
-        if(next==node.end()) next=node.begin();
-        node.erase(--it);
+        if(next==nodes.end()) next=nodes.begin();
+        nodes.erase(--it);
         it=next;
     }
     //cout<<*it;
@@ -188,7 +188,129 @@ int main(){
 
 ### 1.1.2 队列
 
+#### STL queue
+
+```cpp
+queue<Type> q; //定义
+q.push(item);  //进队
+q.pop();       //出队
+q.front();     //return 队头
+q.back();      //return 队尾
+q.size();      //size
+q.empty();     //empty?
+```
+
+#### 双端队列
+
+```cpp
+deque<Type> dq;
+dq[i];
+dq.front();
+dq.back();
+dq.pop_front();
+dq.pop_back();
+dq.push_front(e);
+dq.push_back(e);
+```
+
+#### 单调队列/滑动窗口
+
+* 单调队列其实就是你一直在维持一个有序的队列,你可以很方便地知道队列里的最大值和最小值。
+* 滑动窗口其实就是一个不断进队出队的过程(维持一个窗口)
+
+这里给一个例题
+
+***P1886 【模板】单调队列 / 滑动窗口***
+
+有一个长为 $n$ 的序列 $a$，以及一个大小为 $k$ 的窗口。现在这个窗口从左边开始向右滑动，每次滑动一个单位，求出每次滑动后窗口中的最小值和最大值。
+
+例如，对于序列 $[1,3,-1,-3,5,3,6,7]$ 以及 $k = 3$，有如下过程：
+
+$$\def\arraystretch{1.2}
+\begin{array}{|c|c|c|}\hline
+\textsf{窗口位置} & \textsf{最小值} & \textsf{最大值} \\ \hline
+\verb![1   3  -1] -3   5   3   6   7 ! & -1 & 3 \\ \hline
+\verb! 1  [3  -1  -3]  5   3   6   7 ! & -3 & 3 \\ \hline
+\verb! 1   3 [-1  -3   5]  3   6   7 ! & -3 & 5 \\ \hline
+\verb! 1   3  -1 [-3   5   3]  6   7 ! & -3 & 5 \\ \hline
+\verb! 1   3  -1  -3  [5   3   6]  7 ! & 3 & 6 \\ \hline
+\verb! 1   3  -1  -3   5  [3   6   7]! & 3 & 7 \\ \hline
+\end{array}
+$$
+
+***解答:***
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,k; cin>>n>>k;
+    vector<int> a(n);
+    deque<int> q;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    for(int i=0;i<n;i++){
+        while(!q.empty() && a[q.back()]>a[i]) q.pop_back();
+        q.push_back(i);
+        if(i>=k-1){
+            while(!q.empty() && i-q.front()+1>k) q.pop_front();
+            cout<<a[q.front()]<<" ";
+        }
+    }
+    cout<<endl;
+    while(!q.empty()) q.pop_front();
+    for(int i=0;i<n;i++){
+        while(!q.empty() && a[q.back()]<a[i]) q.pop_back();
+        q.push_back(i);
+        if(i>=k){
+            while(!q.empty() && i-q.front()+1>k) q.pop_front();
+            cout<<a[q.front()]<<" ";
+        }
+    }
+    return 0;
+}
+```
+
 ### 1.1.3 栈
+
+```cpp
+stack<Type> s;
+s.push(item);
+s.top();
+s.pop();
+s.size();
+s.empty();
+```
+
+同理我们也有单调栈，和单调队列一样我们需要维持队列的有序
+
+***P2947 [USACO09MAR] Look Up S***
+
+***约翰的 $N(1\le N\le10^5)$ 头奶牛站成一排，奶牛 $i$ 的身高是 $H_i(1\le H_i\le10^6)$。现在，每只奶牛都在向右看。对于奶牛 $i$，如果奶牛 $j$ 满足 $i<j$ 且 $H_i<H_j$，我们可以说奶牛 $i$ 可以仰望奶牛 $j$。 求出每只奶牛离她最近的仰望对象。***
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n; cin>>n;
+    vector<int> cows(n+1),res(n+1);
+    stack<int> st;
+    for(int i=1;i<=n;i++) cin>>cows[i];
+    for(int i=n;i>=1;i--){
+        while(!st.empty() && cows[i]>cows[st.top()]) st.pop();
+        if(!st.empty()) ans[i]=0;
+        else{
+            ans[i]=st.top();
+            st.push(i);
+        }
+    }
+    for(int i=1;i<=n;i++){
+        cout<<ans[i]<<endl;
+    }
+    return 0;
+}
+```
 
 ### 1.1.4 二叉树&哈夫曼树
 
