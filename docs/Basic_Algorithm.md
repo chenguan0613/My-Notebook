@@ -45,7 +45,7 @@ int main(){
         for(int i=1;i<m;i++){
             prev=cur;
             cur=cur->next;
-        }
+        }vv
         //cout<<cur->value;
         prev->next=cur->next;
         delete cur;
@@ -310,6 +310,204 @@ int main(){
 ```
 
 ### 1.1.4 二叉树&哈夫曼树
+
+#### **动态二叉树**
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+struct Node{
+    int value;
+    Node *left,*right;
+};
+int main(){
+    return 0;
+}
+```
+
+#### **静态二叉树**
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int N=1000;
+struct Node{
+    int value;
+    int left,right;
+}Nodes[N];
+int main(){
+    return 0;
+}
+```
+
+#### **更简洁的表示完全二叉树**
+
+假设根节点是1，后续节点：2,3,4,...,k. 那么：
+
+* 节点i(i>1)的父节点为：`i/2`;
+* 若`2*i>k`, 节点i没有叶子节点；若`2*i+1>k`,节点i没有右子节点
+* 若节点i右子节点，那么它的左子节点为`2*i`,右子节点为`2*i+1)`
+
+#### **二叉树遍历**
+
+拿一个图来举例，如下：
+
+![1.1.4二叉树例](images/1.1.4.png)
+
+* BFS: `E-BG-ADFI-CH`
+
+```cpp
+//动态二叉树Node
+void BFS(Node* start){
+    if(start==nullpter) return;
+    queue<Node*> q;
+    q.push(start);
+    visited[start]=true;
+    while(!q.empty()){
+        Node* u=q.front();
+        q.pop();
+        cout<<u->value;
+        q.push(u->left);
+        q.push(u->right);
+    }
+}
+```
+
+* DFS(preorder): `EBADCGFIH`
+
+```cpp
+//动态二叉树Node
+void preorder(Node* start){
+    if(start==nullpter) return;
+    cout<<start->value;
+    preorder(start->left);
+    preorder(start->right);
+}
+```
+
+* DFS(inorder): `ABCDEFGHI`
+
+```cpp
+//动态二叉树Node
+void preorder(Node* start){
+    if(start==nullpter) return;
+    preorder(start->left);
+    cout<<start->value;
+    preorder(start->right);
+}
+```
+
+* DFS(postorder): `ACDBFHIGE`
+
+```cpp
+//动态二叉树Node
+void preorder(Node* start){
+    if(start==nullpter) return;
+    preorder(start->left);
+    preorder(start->right);
+    cout<<start->value;
+}
+```
+
+#### **哈夫曼树&哈夫曼编码**
+
+二叉树越平衡，树的路径长度(根节点到每个叶子节点的距离之和)是越短的,然而这里是默认不带权的，如果链接节点之间的边带权，那么一个平衡的二叉树的路径长度未必是最小的。所以这就是哈夫曼树需要去解决的，步骤如下：
+
+* 把每个权值构造成一棵只有一个节点的树，$n$ 个权值构成了 $n$ 棵树，记为集合 $F = \{T_1, T_2, \cdots, T_n\}$
+* 在 $F$ 中选择权值最小的两棵树 $T_i$ 和 $T_j$，合并为一棵新的二叉树 $T_x$，它的权值等于 $T_i$ 与 $T_j$ 的权值之和，左右子树分别为 $T_i$ 和 $T_j$
+* 在 $F$ 中删除 $T_i$ 和 $T_j$，并把 $T_x$ 加入 $F$
+* 重复步骤（2）和步骤（3），直到 $F$ 中只含有一棵树，这棵树就是哈夫曼树
+
+#### **P1087 [NOIP 2004 普及组] FBI 树**
+
+##### ***题目描述***
+
+我们可以把由 0 和 1 组成的字符串分为三类：全 0 串称为 B 串，全 1 串称为 I 串，既含 0 又含 1 的串则称为 F 串。
+
+FBI 树是一种二叉树，它的结点类型也包括 F 结点，B 结点和 I 结点三种。由一个长度为 $2^N$ 的 01 串 $S$ 可以构造出一棵 FBI 树 $T$，递归的构造方法如下：
+
+1. $T$ 的根结点为 $R$，其类型与串 $S$ 的类型相同；
+2. 若串 $S$ 的长度大于 $1$，将串 $S$ 从中间分开，分为等长的左右子串 $S_1$ 和 $S_2$；由左子串 $S_1$ 构造 $R$ 的左子树 $T_1$，由右子串 $S_2$ 构造 $R$ 的右子树 $T_2$。
+
+现在给定一个长度为 $2^N$ 的 01 串，请用上述构造方法构造出一棵 FBI 树，并输出它的后序遍历序列。
+
+##### 输入格式
+
+第一行是一个整数 $N(0 \le N \le 10)$，
+
+第二行是一个长度为 $2^N$ 的 01 串。
+
+##### 输出格式
+
+一个字符串，即 FBI 树的后序遍历序列。
+
+##### 输入输出样例 #1
+
+##### 输入 #1
+
+```powershell
+3
+10001011
+```
+
+###### 输出 #1
+
+```powershell
+IBFBBBFIBFIIIFF
+
+```
+
+###### 说明/提示
+
+对于 $40\%$ 的数据，$N \le 2$；
+对于全部的数据，$N \le 10$。
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+struct Node{
+    char v;
+    Node* left;
+    Node* right;
+};
+void postorder(Node* start){
+    if(start==nullptr) return;
+    postorder(start->left);
+    postorder(start->right);
+    cout<<start->v;
+}
+vector<int> N={1,2,4,8,16,32,64,128,256,512,1024};
+int main(){
+    int n; cin>>n;
+    int len=N[n];
+    Node* m;
+    string str;
+    cin>>str;
+    queue<Node*> q;
+    for(char c : str){
+        m = new Node;
+        if(c=='0') m->v='B';
+        else m->v='I';
+        m->left=nullptr;
+        m->right=nullptr;
+        q.push(m);
+    }
+    while(q.size()!=1){
+        Node* node1=q.front(); q.pop();
+        Node *node2=q.front(); q.pop();
+        m=new Node;
+        if(node1->v=='B' && node2->v=='B') m->v='B';
+        else if(node1->v=='I' && node2->v=='I')m->v='I';
+        else m->v='F';
+        m->left=node1;
+        m->right=node2;
+        q.push(m);
+    }
+    postorder(q.front());
+    return 0;
+}
+```
 
 ### 1.1.5 堆
 
