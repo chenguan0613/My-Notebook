@@ -578,6 +578,124 @@ pq.empty();   // 判空
 
 ### 1.2.1 尺取法&二分法&三分法
 
+#### 尺取法
+
+尺取法其实能听懂一点讲就是双指针，一般是在下面的情境下去用的：
+
+* *给定一个序列，首先需要它是有序的*
+* *问题和序列的区间有关,需要操作两个变量(下标i,j)来进行区间的扫描*
+
+一个很经典的例子就是**两数之和**，这场找一个区间的目标两数之和应该是这个样子
+
+```cpp
+for(int i=0;i<n;i++){
+    for(int j=n-1;j>i;j--){
+        //check nums[i] + nums[j]==target?
+    }
+}
+```
+
+使用尺取法的话只需要
+
+```cpp
+int i=0,j=n-1;
+while(i<j){
+    //check nums[i]+nums[j]==target?
+    if(nums[i]+nums[j]>target){
+        j--;
+    }
+    else if(nums[i]+nums[j]<target){
+        i++;
+    }
+    else{
+        //find the answer
+    }
+}
+```
+
+这个双指针通常可以分成**反向(i头扫尾，j尾扫头，如判断回文串)**和**同向(我们所熟知的滑动窗口，如算区间和，数组去重等)**的
+
+#### 二分法
+
+##### 整数二分
+
+```cpp
+int binary_search(int* a, int n, int x){
+    int left=0,right=n;
+    while(left<right){
+        int mid=left+(right-left)/2;
+        if(a[mid]>=x){
+            right=mid;
+        }
+        else{
+            left=mid+1;
+        }
+    }
+}
+```
+
+**例题：** 
+
+有一个序列 $\{2, 2, 3, 4, 5, 1\}$，将其划分成 3 个连续的子序列 $S_1$、$S_2$、$S_3$，每个子序列最少有一个元素，要求使每个子序列的和的最大值最小。下面举例两种分法。
+
+* **分法 1**：$S_1$、$S_2$、$S_3$ 分别为 $(2, 2, 3)$、$(4, 5)$、$(1)$，子序列和分别为 $7$、$9$、$1$，最大值为 $9$。
+* **分法 2**：$S_1$、$S_2$、$S_3$ 分别为 $(2, 2, 3)$、$(4)$、$(5, 1)$，子序列和分别为 $7$、$4$、$6$，最大值为 $7$。
+
+可见分法 2 更好。
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+bool check(const vector<ll>& nums,int m,int x){
+    ll current_sum=0;
+    int partition=1;
+    for(ll num:nums){
+        if(current_sum+num>x){
+            partition++;
+            current_sum=num;
+        }
+        else{
+            current_sum+=num;
+        }
+    }
+    return partition<=m;
+}
+int main(){
+    int n,m; cin>>n>>m;
+    vector<ll> nums(n);
+    ll upper=lower=0;
+    for(int i=0;i<n;i++) cin>>nums[i];
+    for(ll num:nums){
+        lower=max(lower,num);
+        upper+=num;
+    }
+    ll ans=upper;
+    while(lower<=upper){
+        ll mid=lower+(upper-lower)/2;
+        if(check(nums,m,mid)){
+            ans=mid;
+            upper=mid-1;
+        }
+        else{
+            lower=mid+1;
+        }
+    }
+    cout<<ans;
+    return 0;
+}
+```
+
+##### 实数二分
+
+a
+
+##### 整数三分
+
+##### 实数三分
+
+#### 三分法
+
 ### 1.2.2 倍增法&ST算法
 
 ### 1.2.3 前缀和&差分
