@@ -10,6 +10,7 @@ nav:
   - Git Guide: Git.md
   - Algorithm:
     - 基础数据结构: Basic_Algorithm.md
+    - 高级数据结构: Advanced_Algorithm.md
   - HTML:
     - Basic_HTML: HTML.md
     - Text_Format: HTML_textformat.md

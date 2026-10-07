@@ -2,6 +2,43 @@
 
 ## 1.1 并查集
 
+主要分为四步：初始化，合并，查找，统计多少个连通图。
+
+**初始化**
+
+```cpp
+    void init_set(){
+        for(int i=1;i<=n;i++) nums[i]=i;
+    }
+```
+
+**合并**
+
+```cpp
+    void merge_set(int x, int y){
+        int parent_x=find_set(x),parent_y=find_set(y);
+        if(parent_x!=parent_y) nums[parent_x]=nums[parent_y];
+    }
+```
+
+**查找**
+
+```cpp
+    int find_set(int x){
+        if(nums[x]==x) return x;
+        else return find_set(x);
+    }
+```
+
+**统计**
+
+```cpp
+    int ans=0;
+    for(int i=1;i<=n;i++){
+        if(nums[i]==i) ans++;
+    }
+```
+
 先用一个例题来举例：
 **问题描述：有 $n$ 个人一起吃饭，有些人互相认识。认识的人想坐在一起，而不想跟陌生人坐在一起。例如，A 认识 B，B 认识 C，那么 A、B、C 会坐在一张桌子上。给出认识的人，问需要多少张桌子？输入：第 1 行输入整数 $T$，表示有 $T$ 个测试。每个测试中，第 1 行输入整数 $N$ 和 $M$（$1 \leqslant N, M \leqslant 1000$，$N$ 为朋友人数，编号为 $1 \sim N$）。后面 $M$ 行中，每行输入两个整数 $A$ 和 $B$，表示 $A$ 和 $B$ 认识。两个测试之间空一行。输出：对每个测试，输出一个整数，表示需要多少张桌子。**
 
@@ -30,6 +67,7 @@ void solve(){
         merge_set(x,y);
     }
     int ans=0;
+    //连通性判断
     for(int i=1;i<=n;i++){
         if(s[i]==i) ans++;
     }
@@ -43,3 +81,7 @@ int main(){
     return 0;
 }
 ```
+
+以上是基础的并查集的构造,下面是优化：
+
+
