@@ -2,6 +2,8 @@
 
 ## 1.1 并查集
 
+### 基础写法
+
 主要分为四步：初始化，合并，查找，统计多少个连通图。
 
 **初始化**
@@ -82,6 +84,35 @@ int main(){
 }
 ```
 
-以上是基础的并查集的构造,下面是优化：
+### 合并优化
 
+因为并查集可以可以看作是一个树，所以在搜索的时候我们其实是要尽量减少树的高度的。
+
+```cpp
+int height[N];
+void init_set(){
+    for(int i=1;i<=N;i++){
+        s[i]=i;
+        height[i]=0;
+    }
+}
+void merge_set(int x,int y){
+    x=find_set(x);
+    y=find_set(y);
+    if(height[x]==height[y]){
+        height[x]=height[x]+1;
+        s[y]=x;
+    }
+    else{
+        if(height[x]<height[y]){
+            s[x]=y;
+        }
+        else{
+            s[y]=x;
+        }
+    }
+}
+
+```
+### 查询优化
 
